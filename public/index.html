@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!--lib-->
+    <link href="lib/bootstrap.css" rel="stylesheet">
+    <script src="lib/angular.js"></script>
+    <script src="lib/Smart-Table.debug.js"></script>
+    <!--lib-->
+    <link href="styles.css" rel="stylesheet">
+    <script src="app.js"></script>
+</head>
+
+<body ng-controller="MainCtrl">
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Mashups</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li>
+                        <button type="button" class="btn" id="Mashup">Mashup</button>
+                        <button type="button" class="btn" id="Clear">Clear</button>
+                        <button type="button" class="btn" id="Save">Save</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="background-color:white">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-4">Total Rows : {{totalRows}}</div>
+                    <div class="col-md-4">Rows Removed : {{rowsRemoved}}</div>
+                    <div class="col-md-4">Rows Left : {{rowsLeft}}</div>
+                </div>
+                <smart-table columns="serverColumnCollection" rows="serverRowCollection" config="serverConfig" class="table"></smart-table>
+            </div>
+            <div class="col-md-5">
+                <div ng-if="userRowsCount">Total Rows : {{userRowsCount}}</div>
+                <div id="clientTableContainer" class="grayborder">
+                    <p id="fileUploadContainer">
+                        <input type="file" id="file" name="file">
+                    </p>
+                    <h3>Drag(or Browse) CSV File Here</h3>
+                </div>
+                <smart-table columns="clientColumnCollection" rows="clientRowCollection" config="clientConfig" class="table"></smart-table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

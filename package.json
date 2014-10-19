@@ -1,0 +1,8 @@
+{
+    "name": "mashup",
+    "dependencies": {
+        "express": "~4.0.0",
+        "csvtojson": "0.3.11",
+        "connect": "2.19.6"
+    }
+}
